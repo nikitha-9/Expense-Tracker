@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Expense Tracker</h1>
+    <a href="/add-expense" class="btn">Add Expense</a>
+  </header>
+
+  <main>
+    <h2>Your Expenses</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% expenses.forEach(expense => { %>
+          <tr>
+            <td><%= expense.category %></td>
+            <td>Rs.<%= expense.amount %></td>
+            <td><%= expense.description || 'N/A' %></td>
+            <td><%= new Date(expense.date).toLocaleDateString() %></td>
+            <td>
+              <form action="/delete-expense/<%= expense._id %>" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+              </form>
+              <a href="/update-expense/<%= expense._id %>" class="btn">Edit</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

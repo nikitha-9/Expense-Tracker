@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spending by Category</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Spending by Category</h1>
+    <a href="/" class="btn">Back</a>
+  </header>
+
+  <main>
+    <h3>Category Spending Chart</h3>
+    <canvas id="categoryChart" width="400" height="200"></canvas>
+  </main>
+
+  <script>
+    // Fetch category spending data via AJAX
+    fetch('/spending-by-category-data')
+      .then(response => response.json())
+      .then(data => {
+        const labels = Object.keys(data);
+        const chartData = Object.values(data);
+
+        // Initialize Chart.js
+        const ctx = document.getElementById('categoryChart').getContext('2d');
+        const categoryChart = new Chart(ctx, {
+          type: 'pie', // Pie chart for category spending
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Spending by Category',
+              data: chartData,
+              backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56', '#4caf50'],
+              hoverOffset: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(tooltipItem) {
+                    return `${tooltipItem.label}: RS.${tooltipItem.raw}`;
+                  }
+                }
+              }
+            }
+          }
+        });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
+</body>
+</html>

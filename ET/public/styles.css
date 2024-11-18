@@ -1,0 +1,167 @@
+/* styles.css */
+
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  header .btn {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 20px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  header .btn:hover {
+    background-color: #444;
+  }
+  
+  /* Main section styles */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  /* Form styling */
+  form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  form input, form textarea, form button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Input fields and button focus effect */
+  form input:focus, form textarea:focus, form button:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #45a049;
+  }
+  
+  form textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: white;
+  }
+  
+  table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  table td button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  table td button:hover {
+    background-color: #e53935;
+  }
+  
+  table td .btn {
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  table td .btn:hover {
+    background-color: #444;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+  
+    table th, table td {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  
+    form {
+      max-width: 100%;
+      padding: 20px;
+    }
+  
+    form input, form textarea, form button {
+      font-size: 0.9rem;
+    }
+  }
+  
